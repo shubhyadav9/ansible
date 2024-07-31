@@ -13,13 +13,11 @@ Variables are used in this playbook. You can override these variables in your pl
 
 **Tasks**
 
-*Install HAProxy Package:*
+- *Install HAProxy Package:*
 Uses the package module to ensure that the HAProxy package is installed.
-
-*Configure HAProxy Configuration File:*
+- *Configure HAProxy Configuration File:*
 Uses the template module to apply the HAProxy configuration from the Jinja2 template (haproxy.cfg.j2) to the specified destination path (/etc/haproxy/haproxy.cfg). This task triggers a handler to restart HAProxy if the configuration changes.
-
-*Ensure HAProxy Service is Running:*
+- *Ensure HAProxy Service is Running:*
 Uses the service module to start the HAProxy service and ensure it is running.
 
 **Handlers**
