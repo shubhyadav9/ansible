@@ -36,6 +36,7 @@ A handler that restarts the HAProxy service if the configuration file is updated
 This playbook does not have any dependencies outside of Ansible.
 
 **Contribution**
+
 Contributions to this playbook are welcome. Please feel free to open issues or submit pull requests if you have improvements or fixes.
 
 
