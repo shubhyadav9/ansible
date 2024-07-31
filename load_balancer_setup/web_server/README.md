@@ -1,38 +1,44 @@
-Role Name
-=========
+**Ansible Playbook: Configure and Manage HTTPD Web Server**
 
-A brief description of the role goes here.
+This Ansible playbook installs and configures an HTTPD web server. It ensures the HTTPD package is installed, deploys a custom web page, and makes sure the HTTPD service is running.
 
-Requirements
-------------
+**Requirements**
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Ansible 2.9 or later
+A supported Linux-based system (e.g., CentOS, Ubuntu)
 
-Role Variables
---------------
+**Variables**
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Variables are used in this playbook. You can override those variables in your playbook or in a separate variables file.
 
-Dependencies
-------------
+**Tasks**
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+*Install HTTPD Package*:
+Uses the package module to ensure that the HTTPD package is installed. The package name is specified by the httpd_package variable.
 
-Example Playbook
-----------------
+*Copy Web Page Content*:
+Uses the copy module to deploy a custom HTML file to the web server's document root. The content of the web page is specified by the web_page_content variable, and the destination path is specified by web_page_dest.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+*Ensure HTTPD Service is Running*:
+Uses the service module to start the HTTPD service and ensure it is running. The service name is specified by the httpd_service variable.
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+**Dependencies**
 
-License
--------
+This playbook does not have any external dependencies.
 
-BSD
+**Contribution**
 
-Author Information
-------------------
+Contributions are welcome! If you have any improvements or fixes, please open an issue or submit a pull request.
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+
+
+
+
+
+
+
+
+
+
+
+
