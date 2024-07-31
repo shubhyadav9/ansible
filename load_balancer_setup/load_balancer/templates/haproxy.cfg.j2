@@ -1,0 +1,31 @@
+# Configuration for haproxy to setup the load balancer
+
+defaults
+    mode                    http
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout http-keep-alive 10s
+    timeout check           10s
+
+frontend main
+    bind *:5000
+    default_backend             app
+
+backend app
+    balance     roundrobin
+
+# Using for loop, so we don't have to add the ips manually
+
+        {% for webip in groups["WebServer"] %}
+        server app{{ webip }} {{ webip }}:80 check
+        {% endfor %}
+
+
+# This is the alternate method
+# server  app1 13.201.131.108:80 check
+# server  app2 13.233.131.177:80 check
+# server  app3 127.0.0.1:5003 check

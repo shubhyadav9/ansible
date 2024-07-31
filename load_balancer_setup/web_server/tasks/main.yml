@@ -1,0 +1,18 @@
+---
+# tasks file for web_server
+
+- name: "Install HTTPD Package"
+  package:
+    name: "{{ httpd_package }}"  # Use variable for the package name
+    state: present
+
+- name: "Copy Web Page Content"
+  copy:
+    content: "{{ web_page_content }}"  # Use variable for the content of the web page
+    dest: "{{ web_page_dest }}"  # Use variable for the destination path of the web page
+  notify: "Restart HAProxy"  # Trigger the handler to restart HAProxy, if there are any changes in web page 
+
+- name: "Ensure HTTPD Service is Running"
+  service:
+    name: "{{ httpd_service }}"  # Use variable for the service name
+    state: started

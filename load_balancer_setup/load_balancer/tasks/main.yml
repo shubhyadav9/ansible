@@ -1,0 +1,18 @@
+---
+# tasks file for load_balancer
+
+- name: "Install HAProxy Package"
+  package:
+    name: "{{ haproxy_package }}"  # Use variable for package name
+    state: present
+
+- name: "Configure HAProxy Configuration File"
+  template:
+    src: "{{ haproxy_config_src }}"  # Use variable for the source template file
+    dest: "{{ haproxy_config_dest }}"  # Use variable for the destination config file path
+  notify: "Restart HAProxy"  # Trigger the handler to restart HAProxy if there are any changes in haproxy configuration file 
+
+- name: "Ensure HAProxy Service is Running"
+  service:
+    name: "{{ haproxy_service }}"  # Use variable for service name
+    state: started

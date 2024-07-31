@@ -1,0 +1,13 @@
+---
+- name: Deploy Web Server
+  hosts: WebServer  # Host should be setup in your ansible inventory [path - /etc/ansible/hosts]
+  become: true  # Use become to run tasks with elevated privileges (sudo)
+  roles:
+    - role: web_server  # Include the web_server role for configuring web servers
+
+- name: Deploy Load Balancer
+  hosts: LoadBalancer  # Host should be setup in your ansible inventory [path - /etc/ansible/hosts]
+  become: true  # Use become to run tasks with elevated privileges (sudo)
+  roles:
+    - role: load_balancer  # Include the load_balancer role for configuring load balancers
+

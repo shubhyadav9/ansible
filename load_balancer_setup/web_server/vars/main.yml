@@ -1,0 +1,7 @@
+---
+# vars file for web_server
+
+httpd_package: "httpd"          # Variable for the HTTPD package name
+httpd_service: "httpd"          # Variable for the HTTPD service name
+web_page_content: "Hi Welcome to LB Project {{ ansible_nodename }}"  # Variable for the content of the web page
+web_page_dest: "/var/www/html/index.html"  # Variable for the destination of the web page

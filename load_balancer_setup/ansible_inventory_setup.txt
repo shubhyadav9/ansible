@@ -1,0 +1,56 @@
+# Inventory file for Ansible in INI format
+
+# Group of Load Balancers
+[LoadBalancer]
+# Load balancer instance details
+# Replace "load_balancer_ip" with the actual IP address of the load balancer
+# Replace "user_id" with the actual SSH user ID for the load balancer
+# Replace "key_path" with the actual path to the SSH private key file
+<load_balancer_ip> ansible_user=<user_id> ansible_ssh_private_key_file=<key_path> ansible_connection=ssh
+
+# Group of Web Servers
+[WebServer]
+# Web server instance details
+# Replace "web_server_ip_1" with the actual IP address of the web server
+# Replace "user_id" with the actual SSH user ID for the web server
+# Replace "key_path" with the actual path to the SSH private key file
+<web_server_ip_1> ansible_user=<user_id> ansible_ssh_private_key_file=<key_path> ansible_connection=ssh
+
+# Add additional web server entries as needed
+<web_server_ip_2> ansible_user=<user_id> ansible_ssh_private_key_file=<key_path> ansible_connection=ssh
+
+
+#########################################################################################################
+
+
+# Using id and password
+<web_server_ip_2> ansible_user=<user_id> ansible_password=<password> ansible_connection=ssh
+
+
+#########################################################################################################
+
+
+# Alternate Way
+# Define a group of database servers
+    db_servers:
+      hosts:
+        # Individual database server host entries
+        dbserver1:
+          ansible_host: "db_server_ip_1"  # IP address or hostname of the database server
+          ansible_user: "user_id"          # SSH user to connect to the database server
+          ansible_ssh_private_key_file: "/path/to/private/key"  # Path to the SSH private key file
+          # Optionally, other variables specific to this host can be defined here
+        dbserver2:
+          ansible_host: "db_server_ip_2"  # IP address or hostname of the database server
+          ansible_user: "user_id"          # SSH user to connect to the database server
+          ansible_ssh_private_key_file: "/path/to/private/key"  # Path to the SSH private key file
+
+    # Define a group for load balancers
+    load_balancers:
+      hosts:
+        # Individual load balancer host entries
+        lb1:
+          ansible_host: "load_balancer_ip"  # IP address or hostname of the load balancer
+          ansible_user: "user_id"   # SSH user to connect to the load balancer
+          ansible_ssh_private_key_file: "/path/to/private/key"  # Path to the SSH private key file
+          # Optionally, other variables specific to this host can be defined here

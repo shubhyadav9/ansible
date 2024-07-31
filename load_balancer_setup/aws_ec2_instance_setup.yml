@@ -1,0 +1,33 @@
+---
+# Create Ec2 instances as per the requirement for Load Balancer and Back-end Servers
+
+- name: Create EC2 instance
+  hosts: localhost
+  gather_facts: no
+  vars:
+    # AWS credentials (preferably, these should be stored securely, e.g., in AWS Secrets Manager)
+    aws_access_key: "Enter access key to login to aws"
+    aws_secret_key: "Enter secret key to login to aws"
+    
+    # EC2 instance configuration
+    ec2_image_id: "ami-0ec0e125bb6c6e8ec"  # Replace with your AMI ID
+    ec2_instance_type: "t2.micro"          # EC2 instance type
+    ec2_instance_count: 1                  # Number of instances to create
+    ec2_region: "ap-south-1"                # AWS region
+
+  tasks:
+    - name: Launch EC2 instance
+      amazon.aws.ec2_instance:
+        image_id: "{{ ec2_image_id }}"
+        instance_type: "{{ ec2_instance_type }}"
+        count: "{{ ec2_instance_count }}"
+        region: "{{ ec2_region }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        # Additional parameters can be added here as needed
+      register: ec2_instance
+
+    - name: Output EC2 instance details
+      debug:
+        msg: "EC2 instance created with ID: {{ ec2_instance.instances[0].id }}"
+

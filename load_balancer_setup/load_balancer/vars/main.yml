@@ -1,0 +1,7 @@
+---
+# vars file for load_balancer
+
+haproxy_package: "haproxy"      # Variable for the HAProxy package name
+haproxy_service: "haproxy"      # Variable for the HAProxy service name
+haproxy_config_src: "haproxy.cfg.j2"  # Variable for the source template file
+haproxy_config_dest: "/etc/haproxy/haproxy.cfg"  # Variable for the destination config file path

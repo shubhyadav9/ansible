@@ -1,0 +1,9 @@
+---
+# handlers file for load_balancer
+
+# This will restart the service if there are any changes in haproxy configuration file
+
+- name: "Restart HAProxy"
+  service:
+    name: "{{ haproxy_service }}"  # Use variable for service name
+    state: restarted
