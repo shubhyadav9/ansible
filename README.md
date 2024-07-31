@@ -2,11 +2,7 @@
 
 This guide provides instructions for setting up an Ansible inventory, creating an EC2 instance, and configuring connections between a load balancer role and a web server role. Follow the steps below to complete each task.
 
-**1. Ansible Inventory Setup**
-
-Ansible inventory defines the hosts and groups of hosts that Ansible manages. You need to create an inventory file to specify the servers that Ansible will manage.
-
-**2. Create EC2 Instance**
+**1. Create EC2 Instance**
 
 This section describes how to create an EC2 instance using Ansible.
 
@@ -15,6 +11,10 @@ This section describes how to create an EC2 instance using Ansible.
 - Run the Playbook: Execute the playbook with the following command: 
   "ansible-playbook aws_ec2_instance_setup.yml"
 - Verify Instance Creation: Check the output for the instance ID and verify the EC2 instance creation in your AWS Management Console.
+
+**2. Ansible Inventory Setup**
+
+Ansible inventory defines the hosts and groups of hosts that Ansible manages. You need to create an inventory file to specify the servers that Ansible will manage.
 
 **3. Setup Connection Between Load Balancer Role and Web Server Role**
 
