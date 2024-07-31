@@ -13,13 +13,11 @@ Variables are used in this playbook. You can override those variables in your pl
 
 **Tasks**
 
-*Install HTTPD Package*:
+- *Install HTTPD Package*:
 Uses the package module to ensure that the HTTPD package is installed. The package name is specified by the httpd_package variable.
-
-*Copy Web Page Content*:
+- *Copy Web Page Content*:
 Uses the copy module to deploy a custom HTML file to the web server's document root. The content of the web page is specified by the web_page_content variable, and the destination path is specified by web_page_dest.
-
-*Ensure HTTPD Service is Running*:
+- *Ensure HTTPD Service is Running*:
 Uses the service module to start the HTTPD service and ensure it is running. The service name is specified by the httpd_service variable.
 
 **Dependencies**
