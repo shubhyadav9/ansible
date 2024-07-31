@@ -20,6 +20,10 @@ Ansible inventory defines the hosts and groups of hosts that Ansible manages. Yo
 
 To connect a load balancer role and a web server role, you need to configure them so that the load balancer can distribute traffic to the web servers.
 
+**Dependencies**
+
+This playbook does not have any dependencies outside of Ansible.
+
 **Contribution**
 
 Contributions to this setup guide or the Ansible roles are welcome. Please open issues or submit pull requests if you have suggestions or improvements.
