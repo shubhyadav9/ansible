@@ -3,7 +3,7 @@
 
 # This will restart the service if there are any changes in web page
 
-- name: "Restart HAProxy"
+- name: "Restart HTTPD"
   service:
-    name: "{{ haproxy_service }}"  # Use variable for service name
+    name: "{{ httpd_service }}"  # Use variable for service name
     state: restarted
